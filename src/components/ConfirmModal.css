@@ -1,0 +1,72 @@
+.containerConfirmModal {
+    position: absolute;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.contenuModal {
+    top: 191px;
+    left: 413px;
+    width: 357px;
+    height: 193px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    opacity: 1;
+    border-top: 10px solid #D76666;
+    opacity: 1;
+    text-align: center;
+}
+
+.textModal {
+    margin: 7% auto 7% auto;
+}
+
+.btnGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-closeModal {
+    position: relative;
+    top: -18%;
+    left: 43%;
+    color: white;
+    cursor: pointer;
+}
+
+.btnCancelModal {
+    top: 308px;
+    left: 447px;
+    width: 148px;
+    height: 40px;
+    background: #F6F7F8 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    opacity: 1;
+    cursor: pointer;
+    text-align: center;
+    color: #9E9E9E;
+    padding: 10px;
+}
+
+.btnDeleteModal {
+    top: 308px;
+    left: 611px;
+    width: 126px;
+    height: 40px;
+    background: #D76666 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    opacity: 1;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
