@@ -1,0 +1,119 @@
+.titresGames {
+    padding-top: 90px;
+    padding-left: 260px;
+    padding-bottom: 50px;
+    font-size: 50px;
+    font-weight: 300;
+}
+
+.flexAccueil {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* padding-left: 260px; */
+    padding: 15px;
+}
+
+.cartesGames {
+    display: flex;
+    flex-direction: column;
+    height: 480px;
+    width: 280px;
+    margin: 30px 30px 30px 0;
+    position: relative;
+    transition: all 0.4s;
+    border-radius: 10px;
+    box-shadow: 2px 11px 36px -16px rgba(20, 20, 20, 0.75);
+    background-color: rgb(255, 255, 255);
+}
+
+.cartesGames:hover {
+    transform: translateY(-5px);
+}
+
+.containerImgBeer {
+    width: 200px;
+    height: 160px;
+    border-radius: 10px;
+    margin: 4% auto;
+    border: 2px solid gray;
+}
+
+.imgCarte {
+    max-height: 150px;
+    max-width: 90%;
+    margin: 2px auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cardBodyGames {
+    height: 270px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.btnCarte {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #212529;
+    font-size: 14px;
+    line-height: 1.125;
+    border-radius: 5px;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+.btnCarte:hover {
+    text-decoration: none;
+    color: "fff";
+}
+
+.titleBeer {
+    /* white-space: nowrap; */
+    /* text-overflow: clip; */
+    /* width: 80%; */
+    /* overflow: hidden; */
+    font-weight: 500;
+    font-size: 18px;
+    margin: 5px auto;
+    height: 50px;
+}
+
+.tipsBeer {
+    text-align: left;
+    padding: 5px;
+    height: 100px;
+    overflow: auto;
+}
+
+@media screen and (max-width: 1200px) {
+    .titresGames {
+        padding-left: 0px;
+    }
+    .flexAccueil {
+        padding-left: 30px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .titresGames {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 559px) {
+    .cartesGames {
+        margin: 0 0 30px 0;
+    }
+    .flexAccueil {
+        padding-left: 0px;
+    }
+}

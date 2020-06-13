@@ -20,7 +20,7 @@ export default function Form({ addAProductToList, length }) {
 
     return (
         <div>
-            <form>
+            <form className=".formCart">
                 <label htmlFor='name'>
                     Nom:
                 <input type="text" className="field" name='name' value={newElement.name} onChange={(e) => createNewElement(e)} />

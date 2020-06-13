@@ -1,16 +1,33 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './ConfirmModal.css'
-export default function ConfirmModal({ close, stopPropa, deleted, id }) {
+import { Context } from '../Context/Context'
+export default function ConfirmModal() {
+    const {
+        oppenCloseModale,
+        changeTotalCart,
+        deleteProp,
+        addAProductToList,
+        chooseQuantity,
+        productList,
+        toggleModales,
+        setToggleModales,
+        totalCart,
+        id
+    } = useContext(Context)
+
+    const stopPropa = (e) => {
+        e.stopPropagation()
+    }
     return (
-        <div onClick={(e) => close(e)} className="containerConfirmModal">
+        <div onClick={(e) => oppenCloseModale(e)} className="containerConfirmModal">
             <div onClick={(e) => stopPropa(e)} className="contenuModal">
-                <div className="btn-closeModal" onClick={(e) => close(e)}>Close <i className="fas fa-times"></i></div>
+                <div className="btn-closeModal" onClick={(e) => oppenCloseModale(e)}>Close <i className="fas fa-times"></i></div>
                 <div className="textModal">
-                    Do you really want to delete this product ?
+                    Do you really want to delete this product ? {id}
                 </div>
                 <div className='btnGroup'>
-                    <div className="btnCancelModal " onClick={(e) => close(e)} >Cancel</div>
-                    <div className="btnDeleteModal" onClick={(e) => deleted(id, close)}>Delete</div>
+                    <div className="btnCancelModal " onClick={(e) => oppenCloseModale(e)} >Cancel</div>
+                    <div className="btnDeleteModal" onClick={(e) => deleteProp(id, oppenCloseModale)}>Delete</div>
                 </div>
             </div>
         </div>
