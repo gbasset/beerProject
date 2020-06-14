@@ -16,6 +16,7 @@ const ContextProvider = (props) => {
     const [DataFiltered, setDataFiltered] = useState()
     const [noData, setNoData] = useState()
     const [searchBarValue, setSearchBarValue] = useState('')
+    const [productSelect, setProductSelect] = useState()
     const chooseQuantity = (event, index, id) => {
         const newProductList = productList
         if (typeof newProductList[index].quantity === isNaN) {
@@ -96,7 +97,9 @@ const ContextProvider = (props) => {
         search(beerList, e.target.value)
     }
     console.log("DataFiltered", DataFiltered);
-
+    const chargProduct = (e) => {
+        setProductSelect(e)
+    }
     return (
         <Context.Provider value={{
             oppenCloseModale,
@@ -113,7 +116,9 @@ const ContextProvider = (props) => {
             searchBarValue,
             setBeerList,
             beerList,
-            DataFiltered
+            DataFiltered,
+            chargProduct,
+            productSelect
 
         }}>
             {props.children}

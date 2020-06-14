@@ -67,7 +67,7 @@ export default function Header() {
 
 
     return (
-        <div>
+        <>
             <nav className="headerTop">
                 <h1>In Beer We Trust</h1>
                 {(menu || !smallScreen) && (
@@ -88,16 +88,16 @@ export default function Header() {
 
                                 <input required value={searchBarValue} onChange={handleChange} type="text" className="inputRecherche" />
 
-                                <Link
+                                {/* <Link
                                     className="lien"
                                     to={{
                                         pathname: `/resultats/${searchInput}`
                                     }}
-                                >
-                                    <button type="submit">
-                                        <img src={search} alt="icone loupe" className="logoLoupe" />
-                                    </button>
-                                </Link>
+                                > */}
+                                <button type="submit">
+                                    <img src={search} alt="icone loupe" className="logoLoupe" />
+                                </button>
+                                {/* </Link> */}
                             </form>
                         </li>
 
@@ -111,7 +111,7 @@ export default function Header() {
                 <img onClick={toggleNavRes} src={!menu ? menuIco : croix} alt="icone menu responsive" className="menuIco" />
             </div>
 
-        </div>
+        </>
     )
 }
 

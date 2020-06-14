@@ -4,6 +4,7 @@ import BeerItem from './BeerItem';
 import { Context } from '../../Context/Context'
 import CartContainer from '../Cart/CartContainer'
 import { GrCart } from 'react-icons/gr';
+import Header from './../Header/Header';
 export default function BeerContainer() {
     const {
         oppenCloseModale,
@@ -44,6 +45,7 @@ export default function BeerContainer() {
     console.log("beerList", beerList);
     return (
         <>
+            {/* <Header /> */}
             <button className='btn-cart' onClick={seeCart}><GrCart /></button>
             {cartIsOppen &&
                 <>

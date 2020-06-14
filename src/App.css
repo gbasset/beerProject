@@ -1,5 +1,21 @@
-body {
+body, html {
+  display: block;
+  height: 100vh;
   background-color: #ffc933;
+  text-align: center;
+}
+
+.a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  height: 100%;
 }
 
 .App h1 {
@@ -48,10 +64,6 @@ table p {
 
 button {
   cursor: pointer;
-}
-
-body {
-  text-align: center;
 }
 
 .delete {
