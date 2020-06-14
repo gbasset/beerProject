@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import logo from './IconeTwitch.svg'
+import logo from '../../Asset/beer-311090.svg'
 import search from './Search.svg'
 import menuIco from './Menuico.svg'
 import croix from './Croix.svg'
@@ -69,6 +69,7 @@ export default function Header() {
     return (
         <div>
             <nav className="headerTop">
+                <h1>In Beer We Trust</h1>
                 {(menu || !smallScreen) && (
 
 
@@ -76,7 +77,8 @@ export default function Header() {
 
                         <li onClick={hideMenu} className="lienNav">
                             <NavLink activeStyle={{ color: "#7bed9f" }} className="lien" exact to="/">
-                                <h1>In Beer We Trust</h1>
+                                <img src={logo} alt="logo beer" className="logo" />
+
                             </NavLink>
                         </li>
 

@@ -3,6 +3,7 @@ import axios from 'axios';
 import BeerItem from './BeerItem';
 import { Context } from '../../Context/Context'
 import CartContainer from '../Cart/CartContainer'
+import { GrCart } from 'react-icons/gr';
 export default function BeerContainer() {
     const {
         oppenCloseModale,
@@ -43,7 +44,7 @@ export default function BeerContainer() {
     console.log("beerList", beerList);
     return (
         <>
-            <button className='btn-cart' onClick={seeCart}>See Cart</button>
+            <button className='btn-cart' onClick={seeCart}><GrCart /></button>
             {cartIsOppen &&
                 <>
                     <CartContainer />

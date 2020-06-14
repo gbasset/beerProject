@@ -60,5 +60,9 @@ body {
 }
 
 .btn-cart {
-  margin-top: 90px;
+  margin-top: 140px;
+  font-size: 18px;
+  height: 25px;
+  width: 50px;
+  color: #ffc933;
 }
