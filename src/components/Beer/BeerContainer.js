@@ -9,6 +9,7 @@ export default function BeerContainer() {
     const {
         oppenCloseModale,
         changeTotalCart,
+        cartIsOppen,
         beerList,
         setBeerList,
         DataFiltered
@@ -16,11 +17,11 @@ export default function BeerContainer() {
 
     // const [beerList, setBeerList] = useState([])
 
-    const [cartIsOppen, setCartIsOppen] = useState(false)
+    // const [cartIsOppen, setCartIsOppen] = useState(false)
 
-    const seeCart = () => {
-        setCartIsOppen(!cartIsOppen)
-    }
+    // const seeCart = () => {
+    //     setCartIsOppen(!cartIsOppen)
+    // }
 
     useEffect(() => {
         const getBeer = async () => {
@@ -39,19 +40,27 @@ export default function BeerContainer() {
                 )
             }, 1000)
         }
+        const getBeer3 = async () => {
+            const beers3 = await axios.get(`https://api.punkapi.com/v2/beers?page=2&per_page=80`)
+            const beerNew = beers3.data
+            setTimeout(() => {
+                setBeerList(
+                    prevValues => (
+                        [...prevValues,
+                        ...beerNew]
+                    )
+                )
+            }, 1000)
+        }
         getBeer()
         getBeer2()
+        getBeer3()
     }, [])
     console.log("beerList", beerList);
     return (
         <>
             {/* <Header /> */}
-            <button className='btn-cart' onClick={seeCart}><GrCart /></button>
-            {cartIsOppen &&
-                <>
-                    <CartContainer />
-                </>
-            }
+            {/* <button className='btn-cart' onClick={seeCart}><GrCart /></button> */}
             <div className="flexAccueil">
                 {!DataFiltered ?
                     beerList.map((beer, i) =>
@@ -65,6 +74,7 @@ export default function BeerContainer() {
                     )
 
                 }
+
 
             </div>
         </>

@@ -5,18 +5,13 @@ import menuIco from './Menuico.svg'
 import croix from './Croix.svg'
 import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
+import { GrCart } from 'react-icons/gr';
+import CartContainer from '../Cart/CartContainer'
 import { Context } from '../../Context/Context'
 export default function Header() {
     const {
-        oppenCloseModale,
-        changeTotalCart,
-        deleteProp,
-        addAProductToList,
-        chooseQuantity,
-        productList,
-        toggleModales,
-        setToggleModales,
-        totalCart,
+        cartIsOppen,
+        seeCart,
         handleChange,
         searchBarValue
     } = useContext(Context)
@@ -100,11 +95,17 @@ export default function Header() {
                                 {/* </Link> */}
                             </form>
                         </li>
-
+                        <li className="">
+                            <div className='btn-cart' onClick={seeCart}><GrCart />Panier</div>
+                        </li>
                     </ul>
 
                 )}
-
+                {cartIsOppen &&
+                    <>
+                        <CartContainer />
+                    </>
+                }
             </nav>
 
             <div className="menuResBtn">

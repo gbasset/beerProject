@@ -19,14 +19,14 @@ function App() {
       <Router
       // forceRefresh={true}
       >
-        <div className='App'>
-          <Header />
-          <Switch>
-            <Route exact path="/" component={BeerContainer} />
-            <Route exact path="/beer/:slug" component={BeerItemContainer} />
-          </Switch>
+        <Header />
+        {/* <div className='App'> */}
+        <Switch>
+          <Route exact path="/" component={BeerContainer} />
+          <Route exact path="/beer/:slug" component={BeerItemContainer} />
+        </Switch>
 
-        </div>
+        {/* </div> */}
       </Router>
     </ContextProvider>
   );

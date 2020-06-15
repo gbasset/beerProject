@@ -5,7 +5,7 @@ import TableTotal from './TableTotal';
 import TableHead from './TableHead';
 import { Context } from '../../Context/Context'
 import ConfirmModal from './../ConfirmModal';
-
+import './CartContainer.css'
 
 function CartContainer() {
     const {
@@ -17,37 +17,46 @@ function CartContainer() {
         productList,
         toggleModales,
         setToggleModales,
-        totalCart
+        totalCart,
+        seeCart
     } = useContext(Context)
 
     //https://punkapi.com/documentation/v2
 
     return (
-        <div>
-            <h1>Ma commande</h1>
-            <table >
-                <thead>
-                    <TableHead />
-                </thead>
-                <tbody>
-                    <TablesBody
-                        items={productList}
-                        chooseQuantity={chooseQuantity}
-                        deleteProp={deleteProp}
-                        oppenCloseModale={oppenCloseModale}
-                        toggleModales={toggleModales}
-                    />
-                </tbody>
-                <tfoot>
-                    <TableTotal
-                        total={totalCart}
-                    />
-                </tfoot>
-            </table>
-            <Form
+        <div className="cartContainer">
+            <div className="headerCart">
+                <h1>Ma commande</h1>
+                <button id="btn" class="btn" onClick={seeCart}>Fermer</button>
+            </div>
+            <div className="bodyCart">
+                <table >
+                    <thead>
+                        <TableHead />
+                    </thead>
+                    <tbody >
+                        <TablesBody
+                            items={productList}
+                            chooseQuantity={chooseQuantity}
+                            deleteProp={deleteProp}
+                            oppenCloseModale={oppenCloseModale}
+                            toggleModales={toggleModales}
+                        />
+                    </tbody>
+                    <tfoot>
+                        <TableTotal
+                            total={totalCart}
+                        />
+                    </tfoot>
+                </table>
+            </div>
+            <div className="footerCart">
+                <div className="btn">commander {totalCart} €</div>
+            </div>
+            {/* <Form
                 addAProductToList={addAProductToList}
                 length={productList.length}
-            />
+            /> */}
             {
                 toggleModales &&
                 <>

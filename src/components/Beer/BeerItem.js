@@ -9,7 +9,14 @@ export default function BeerItem({ beer }) {
         addAProductToList
 
     } = useContext(Context)
-    const item = { id: beer.id, name: beer.name, price: 54, quantity: 1, total: 0 }
+    let price
+    if (beer.abv < 5) {
+        price = 5
+    }
+    else if (beer.abv > 5) {
+        price = 10
+    }
+    const item = { id: beer.id, name: beer.name, price: price, quantity: 1, total: 0 }
     return (
         <div>
             <div className="cartesGames" onClick={(e) => chargProduct(beer)} >

@@ -17,6 +17,7 @@ const ContextProvider = (props) => {
     const [noData, setNoData] = useState()
     const [searchBarValue, setSearchBarValue] = useState('')
     const [productSelect, setProductSelect] = useState()
+    const [cartIsOppen, setCartIsOppen] = useState(false)
     const chooseQuantity = (event, index, id) => {
         const newProductList = productList
         if (typeof newProductList[index].quantity === isNaN) {
@@ -74,9 +75,14 @@ const ContextProvider = (props) => {
                 line =>
                     line.name.toUpperCase().match(`.*${word.toUpperCase()}.*`) // on compare les deux chaine mises en majuscules(pour que l'on soit sur de toujours comparer des chaines de meme type)
             );
-
+            let ingredients = table.filter(
+                // on fait un filter et on met le résultat dans la variable result
+                line =>
+                    line.ingredients.yeast.toUpperCase().match(`.*${word.toUpperCase()}.*`) // on compare les deux chaine mises en majuscules(pour que l'on soit sur de toujours comparer des chaines de meme type)
+            );
             let dataFinal = [
                 ...resultName,
+                ...ingredients
             ]
             let uniq = [...new Set(dataFinal)];
 
@@ -100,6 +106,11 @@ const ContextProvider = (props) => {
     const chargProduct = (e) => {
         setProductSelect(e)
     }
+
+
+    const seeCart = () => {
+        setCartIsOppen(!cartIsOppen)
+    }
     return (
         <Context.Provider value={{
             oppenCloseModale,
@@ -118,7 +129,9 @@ const ContextProvider = (props) => {
             beerList,
             DataFiltered,
             chargProduct,
-            productSelect
+            productSelect,
+            cartIsOppen,
+            seeCart
 
         }}>
             {props.children}

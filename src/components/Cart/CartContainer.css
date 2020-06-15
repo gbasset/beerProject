@@ -1,0 +1,100 @@
+.cartContainer {
+    height: 500px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 117px;
+    width: 500px;
+    background-color: rgb(255, 209, 4);
+    z-index: 2000;
+    line-height: 1.5;
+    /* transform: translateX(-400px); */
+    transition: transform 1s ease-in-out;
+    /* max-height: 500px; */
+}
+
+.headerCart {
+    position: fixed;
+    margin: auto;
+    text-align: center;
+    width: 35%;
+    height: 80px;
+}
+
+.bodyCart {
+    position: relative;
+    top: 80px;
+    height: 360px;
+    overflow: auto;
+}
+
+.footerCart {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    width: 40%;
+    height: 80px;
+    top: 94px;
+}
+
+.formCart {
+    margin-top: 50px;
+    text-align: center
+}
+
+.formCart {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.formCart input {
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.formCarth2 {
+    text-align: center
+}
+
+.formCart h2 {
+    text-align: center
+}
+
+.delete {
+    color: red;
+    cursor: pointer;
+}
+
+.btn-cart {
+    /* margin-top: 140px; */
+    font-size: 18px;
+    height: 25px;
+    width: 50px;
+    color: #020201;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.btn {
+    cursor: pointer;
+    border: 0;
+    padding: 10px 20px;
+    background: #000;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn:hover {
+    background: #222;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
