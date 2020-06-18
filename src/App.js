@@ -19,8 +19,8 @@ function App() {
       <Router
       // forceRefresh={true}
       >
-        <Header />
         {/* <div className='App'> */}
+        <Header />
         <Switch>
           <Route exact path="/" component={BeerContainer} />
           <Route exact path="/beer/:slug" component={BeerItemContainer} />

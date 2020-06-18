@@ -8,6 +8,7 @@
     width: 100%;
     position: fixed;
     z-index: 1000;
+    box-shadow: #26242430 0px 6px 8px 0px;
 }
 
 .listeMenu {
@@ -95,6 +96,33 @@
 
 .menuIco {
     width: 25px;
+}
+
+.containCartItem {
+    position: absolute;
+    z-index: 5;
+    transform: translate(50%, -50%);
+    top: 34px;
+    right: 43px;
+}
+
+.totalCartItem {
+    background-color: rgb(38, 36, 36);
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 16px;
+    min-height: 16px;
+    font-size: 10px;
+    font-family: "Roboto Regular", sans-serif;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 8px;
+    margin: auto;
 }
 
 @media screen and (max-width: 950px) {

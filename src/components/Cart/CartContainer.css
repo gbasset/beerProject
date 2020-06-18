@@ -1,6 +1,8 @@
 .cartContainer {
     height: 500px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
     position: absolute;
     right: 0;
     top: 117px;
@@ -14,16 +16,16 @@
 }
 
 .headerCart {
-    position: fixed;
-    margin: auto;
-    text-align: center;
-    width: 35%;
+    /* position: fixed; */
+    margin: 0 auto;
+    width: auto;
+    /* text-align: center; */
     height: 80px;
 }
 
 .bodyCart {
     position: relative;
-    top: 80px;
+    top: 5px;
     height: 360px;
     overflow: auto;
 }
@@ -33,8 +35,8 @@
     margin: auto;
     text-align: center;
     width: 40%;
-    height: 80px;
-    top: 94px;
+    height: 10px;
+    top: -13px;
 }
 
 .formCart {
@@ -97,4 +99,8 @@
 
 .btn:active {
     transform: scale(0.98);
+}
+
+.qteInput {
+    max-width: 40px;
 }

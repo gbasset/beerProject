@@ -13,7 +13,8 @@ export default function Header() {
         cartIsOppen,
         seeCart,
         handleChange,
-        searchBarValue
+        searchBarValue,
+        productList
     } = useContext(Context)
 
     const [menu, showMenu] = useState(false);
@@ -95,8 +96,12 @@ export default function Header() {
                                 {/* </Link> */}
                             </form>
                         </li>
-                        <li className="">
+                        <li className="lienNav">
+
                             <div className='btn-cart' onClick={seeCart}><GrCart />Panier</div>
+                            <div className="containCartItem">
+                                <div className="totalCartItem">{productList.length}</div>
+                            </div>
                         </li>
                     </ul>
 

@@ -26,8 +26,8 @@ function CartContainer() {
     return (
         <div className="cartContainer">
             <div className="headerCart">
-                <h1>Ma commande</h1>
-                <button id="btn" class="btn" onClick={seeCart}>Fermer</button>
+                <h1>Mon Panier</h1>
+                <button id="btn" className="btn" onClick={seeCart}>Fermer</button>
             </div>
             <div className="bodyCart">
                 <table >

@@ -34,6 +34,7 @@
 }
 
 .contain {
-    margin-top: 10%;
+    position: relative;
+    top: 121px;
     width: 100%;
 }

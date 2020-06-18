@@ -16,7 +16,7 @@ export default function BeerItem({ beer }) {
     else if (beer.abv > 5) {
         price = 10
     }
-    const item = { id: beer.id, name: beer.name, price: price, quantity: 1, total: 0 }
+    const item = { id: beer.id, name: beer.name, price: price, picture: beer.image_url, quantity: 1, total: 0 }
     return (
         <div>
             <div className="cartesGames" onClick={(e) => chargProduct(beer)} >

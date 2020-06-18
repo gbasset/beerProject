@@ -56,7 +56,7 @@ export default function BeerContainer() {
         getBeer2()
         getBeer3()
     }, [])
-    console.log("beerList", beerList);
+
     return (
         <>
             {/* <Header /> */}

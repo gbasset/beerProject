@@ -4,9 +4,7 @@ export const Context = createContext()
 
 const ContextProvider = (props) => {
     const [productList, setProductList] = useState([
-        { id: 1, name: 'produit 1', price: 50, quantity: 1, },
-        { id: 2, name: 'produit 2', price: 75, quantity: 2, },
-        { id: 3, name: 'produit 3', price: 20, quantity: 5, }
+
     ])
     const [totalCart, setTotalCart] = useState(0)
 
@@ -36,10 +34,24 @@ const ContextProvider = (props) => {
         }
     }
     const addAProductToList = (element) => {
-        setProductList([...productList, element])
+        let test = false
+        const newProduct = productList
+        newProduct.forEach(x => {
+            if (x.name === element.name) {
+                test = true
+                x.quantity += 1
+            }
+        })
+        console.log("element", element.name);
+
+        if (test === true) {
+            setProductList([...newProduct])
+        }
+        else {
+            setProductList([...productList, element])
+        }
     }
     const deleteProp = (x, close) => {
-        console.log('item', x);
         let array = productList.filter(element => element.id !== x)
         setProductList([...array])
         if (close) {
@@ -51,10 +63,15 @@ const ContextProvider = (props) => {
     }, [])
     const changeTotalCart = (array) => {
         let total = []
-        const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        array.forEach(x =>
-            total.push(x.quantity * x.price))
-        setTotalCart(total.reduce(reducer))
+        if (array.length) {
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            array.forEach(x =>
+                total.push(x.quantity * x.price))
+            setTotalCart(total.reduce(reducer))
+        }
+        else {
+            setTotalCart(0)
+        }
     }
     useEffect(() => {
         changeTotalCart(productList)
@@ -102,7 +119,7 @@ const ContextProvider = (props) => {
         setSearchBarValue(e.target.value)
         search(beerList, e.target.value)
     }
-    console.log("DataFiltered", DataFiltered);
+
     const chargProduct = (e) => {
         setProductSelect(e)
     }

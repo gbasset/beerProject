@@ -23,7 +23,7 @@ export default function ConfirmModal() {
             <div onClick={(e) => stopPropa(e)} className="contenuModal">
                 <div className="btn-closeModal" onClick={(e) => oppenCloseModale(e)}>Close <i className="fas fa-times"></i></div>
                 <div className="textModal">
-                    Do you really want to delete this product ? {id}
+                    Voullez vous vraiment supprimer ce produit ? {id}
                 </div>
                 <div className='btnGroup'>
                     <div className="btnCancelModal " onClick={(e) => oppenCloseModale(e)} >Cancel</div>

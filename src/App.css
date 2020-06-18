@@ -24,6 +24,7 @@ body, html {
 td {
   border: 1px solid grey;
   padding: 10px;
+  width: 100%;
 }
 
 table p {

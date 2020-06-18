@@ -4,7 +4,7 @@ export default function TableTotal({ total }) {
     return (
         <>
             <tr >
-                <td colSpan="4">
+                <td colSpan="5">
                     Total : {total} €
                  </td>
             </tr>
