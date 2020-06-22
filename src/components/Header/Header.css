@@ -3,12 +3,13 @@
  */
 
 .headerTop {
-    background: #f59b0a;
-    height: 120px;
+    background: rgb(254, 217, 37);
+    height: 95px;
     width: 100%;
     position: fixed;
     z-index: 1000;
     box-shadow: #26242430 0px 6px 8px 0px;
+    text-align: center;
 }
 
 .listeMenu {
@@ -104,25 +105,26 @@
     transform: translate(50%, -50%);
     top: 34px;
     right: 43px;
+    border: 1px solid black;
+    border-radius: 50%;
 }
 
 .totalCartItem {
-    background-color: rgb(38, 36, 36);
+    background-color: rgb(0, 0, 0);
     font-weight: bold;
     color: rgb(255, 255, 255);
     flex-direction: column;
-    -webkit-box-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
     align-items: center;
-    min-width: 16px;
-    min-height: 16px;
-    font-size: 10px;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 14px;
     font-family: "Roboto Regular", sans-serif;
-    line-height: 15px;
+    line-height: 20px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 30px;
     margin: auto;
+    transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
 }
 
 @media screen and (max-width: 950px) {

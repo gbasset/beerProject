@@ -20,13 +20,14 @@
 }
 
 .headerBeerItem {
-    background-color: #ffe7a4b8;
+    background-color: #e0e0e0b8;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     padding: 5px;
     /* width: 100%; */
+    padding: 26px;
 }
 
 .descriptionBeer {
@@ -35,6 +36,20 @@
 
 .contain {
     position: relative;
-    top: 121px;
+    top: 93px;
+    text-align: center;
     width: 100%;
+}
+
+.scrollUpBtn {
+    width: 45px;
+    height: 50px;
+    padding: 10px;
+    font-size: 25px;
+    background-color: none;
+    cursor: pointer;
+}
+
+.scrollUpBtn:hover {
+    font-size: 30px;
 }

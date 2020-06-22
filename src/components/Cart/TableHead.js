@@ -5,9 +5,7 @@ export default function TableHead() {
         <>
             <tr>
                 <td>Produit</td>
-                <td>
-                    Image
-          </td>
+
                 <td>
                     Prix Unitaire
           </td>

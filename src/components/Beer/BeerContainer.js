@@ -1,11 +1,13 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useRef, useLayoutEffect } from 'react'
 import axios from 'axios';
 import BeerItem from './BeerItem';
 import { Context } from '../../Context/Context'
 import CartContainer from '../Cart/CartContainer'
 import { GrCart } from 'react-icons/gr';
+import { AiFillUpCircle } from 'react-icons/ai';
+
 import Header from './../Header/Header';
-export default function BeerContainer() {
+export default function BeerContainer(effect, deps, element, useWindow, wait) {
     const {
         oppenCloseModale,
         changeTotalCart,
@@ -14,7 +16,7 @@ export default function BeerContainer() {
         setBeerList,
         DataFiltered
     } = useContext(Context)
-
+    const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
     // const [beerList, setBeerList] = useState([])
 
     // const [cartIsOppen, setCartIsOppen] = useState(false)
@@ -56,12 +58,16 @@ export default function BeerContainer() {
         getBeer2()
         getBeer3()
     }, [])
+    const myRef = useRef(null)
+    const executeScroll = () => scrollToRef(myRef)
+
+    //https://dev.to/n8tb1t/tracking-scroll-position-with-react-hooks-3bbj
 
     return (
         <>
             {/* <Header /> */}
             {/* <button className='btn-cart' onClick={seeCart}><GrCart /></button> */}
-            <div className="flexAccueil">
+            <div className="flexAccueil" ref={myRef}>
                 {!DataFiltered ?
                     beerList.map((beer, i) =>
                         <BeerItem key={i}
@@ -72,8 +78,10 @@ export default function BeerContainer() {
                         <BeerItem key={i}
                             beer={beer} />
                     )
-
                 }
+                <div onClick={executeScroll} className="scrollUpBtn">
+                    <AiFillUpCircle />
+                </div>
 
 
             </div>

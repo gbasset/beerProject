@@ -1,17 +1,20 @@
 .cartContainer {
-    height: 500px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     margin: auto;
     position: absolute;
     right: 0;
-    top: 117px;
-    width: 500px;
-    background-color: rgb(255, 209, 4);
+    top: 0px;
+    width: 405px;
+    background-color: #ffffff;
     z-index: 2000;
     line-height: 1.5;
+    border-top-left-radius: 2%;
+    border-bottom-left-radius: 2%;
     /* transform: translateX(-400px); */
     transition: transform 1s ease-in-out;
+    box-shadow: #26242430 5px 10px 8px 0px;
     /* max-height: 500px; */
 }
 

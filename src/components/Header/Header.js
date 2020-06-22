@@ -98,7 +98,14 @@ export default function Header() {
                         </li>
                         <li className="lienNav">
 
-                            <div className='btn-cart' onClick={seeCart}><GrCart />Panier</div>
+                            <div
+                                className='btn-cart'
+                                onClick={seeCart}
+                                onMouseEnter={() => seeCart()}
+                            // onMouseLeave={() => seeCart()}
+                            >
+                                <GrCart />Panier
+                                </div>
                             <div className="containCartItem">
                                 <div className="totalCartItem">{productList.length}</div>
                             </div>
@@ -108,7 +115,9 @@ export default function Header() {
                 )}
                 {cartIsOppen &&
                     <>
-                        <CartContainer />
+                        <CartContainer
+
+                        />
                     </>
                 }
             </nav>

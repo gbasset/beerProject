@@ -3,18 +3,18 @@ import './BeerItemContainer.css'
 import { useParams, useLocation, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Context } from '../../Context/Context'
-export default function BeerItemContainer() {
+export default function BeerItemContainer({ match }) {
     const {
         chargProduct,
         productSelect
     } = useContext(Context)
     let { slug } = useParams()
     const test = useLocation()
-    console.log("slug", slug);
-    console.log("test", test.state);
-    console.log(productSelect);
+    console.log(match.params.price);
+
 
     const [beer, setBeer] = useState()
+    // console.log(test.item.price);
 
     // useEffect(() => {
     //     setBeer(test.state)
@@ -22,6 +22,7 @@ export default function BeerItemContainer() {
 
     // }, [])
     // console.log("beer", beer);
+    console.log('productSelect', productSelect);
 
     return (
         <div className="beerItemContainer2">
@@ -38,8 +39,15 @@ export default function BeerItemContainer() {
                                 <h5>{productSelect.tagline}</h5>
                                 {productSelect.ingredients.yeast}
                                 <div className="bodyBeer">
-                                    <p></p>
-
+                                    <h3>Malt</h3>
+                                    <ul>{productSelect.ingredients.malt.map(
+                                        (x, index) => <li key={index} >{x.name} - {x.amount.value}  {x.amount.unit} </li>
+                                    )}</ul>
+                                    <h3>Hops</h3>
+                                    <ul>{productSelect.ingredients.hops.map(
+                                        (x, index) => <li key={index}>{x.name} - {x.amount.value}  {x.amount.unit} </li>
+                                    )}</ul>
+                                    <div className="price">{match.params.price} €</div>
                                 </div>
                             </div>
                         </div>

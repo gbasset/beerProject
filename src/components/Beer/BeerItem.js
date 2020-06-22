@@ -22,9 +22,10 @@ export default function BeerItem({ beer }) {
             <div className="cartesGames" onClick={(e) => chargProduct(beer)} >
                 <Link className='lien'
                     to={{
-                        pathname: "beer/" + beer.id,
+                        pathname: `beer/${beer.id}${price}`,
                         state: {
-                            Beer: beer
+                            Beer: beer,
+                            item: item
                         }
                     }}>
                     <div className="containerImgBeer">
@@ -34,9 +35,11 @@ export default function BeerItem({ beer }) {
                 <div className="cardBodyGames">
                     <Link style={{ textDecoration: 'none', color: 'black' }}
                         to={{
-                            pathname: "beer/" + beer.id,
+                            pathname: `beer/${beer.id}/${price}`,
+
                             state: {
-                                Beer: beer
+                                Beer: beer,
+                                item: item
                             }
                         }}>
                         <h5 className="titleBeer"> {beer.name}   </h5>

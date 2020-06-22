@@ -24,10 +24,10 @@ function CartContainer() {
     //https://punkapi.com/documentation/v2
 
     return (
-        <div className="cartContainer">
+        <div className="cartContainer" onMouseLeave={() => seeCart()}>
             <div className="headerCart">
                 <h1>Mon Panier</h1>
-                <button id="btn" className="btn" onClick={seeCart}>Fermer</button>
+
             </div>
             <div className="bodyCart">
                 <table >
@@ -51,7 +51,7 @@ function CartContainer() {
                 </table>
             </div>
             <div className="footerCart">
-                <div className="btn">commander {totalCart} €</div>
+                <div className="btn">commander </div>
             </div>
             {/* <Form
                 addAProductToList={addAProductToList}

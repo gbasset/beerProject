@@ -2,8 +2,6 @@ import React, { useState, Fragment } from 'react'
 import ConfirmModal from '../ConfirmModal';
 export default function TablesBody({ items, chooseQuantity, deleteProp, toggleModales, oppenCloseModale }) {
 
-    console.log(items.map(x => x));
-
 
     // const deleteTheProp = (e) => {
     //     deleteProp(e)
@@ -18,10 +16,10 @@ export default function TablesBody({ items, chooseQuantity, deleteProp, toggleMo
                     (
                         <Fragment key={i}>
                             <tr >
-                                <td onClick={(e) => oppenCloseModale(item.id)}>{item.name} <span className="delete">X</span></td>
-                                <td>
-                                    <img src={item.picture} width="10px" alt="" />
-                                </td>
+                                <td onClick={(e) => oppenCloseModale(item.id)}>  <img src={item.picture} width="10px" alt="" /> {item.name} <span className="delete">X</span></td>
+
+
+
                                 <td>{item.price} €</td>
                                 <td>
                                     <input

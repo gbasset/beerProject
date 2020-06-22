@@ -23,7 +23,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={BeerContainer} />
-          <Route exact path="/beer/:slug" component={BeerItemContainer} />
+          <Route exact path="/beer/:slug:price" component={BeerItemContainer} />
         </Switch>
 
         {/* </div> */}
