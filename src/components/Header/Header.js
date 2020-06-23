@@ -68,10 +68,9 @@ export default function Header() {
                 <h1>In Beer We Trust</h1>
                 {(menu || !smallScreen) && (
 
-
                     <ul className="listeMenu">
 
-                        <li onClick={hideMenu} className="lienNav">
+                        <li onClick={hideMenu} className="lienNav" title='Accueil'>
                             <NavLink activeStyle={{ color: "#7bed9f" }} className="lien" exact to="/">
                                 <img src={logo} alt="logo beer" className="logo" />
 
@@ -81,7 +80,6 @@ export default function Header() {
 
                         <li className="lienNav">
                             <form className="formSubmit" onSubmit={handleSubmit}>
-
                                 <input required value={searchBarValue} onChange={handleChange} type="text" className="inputRecherche" />
 
                                 {/* <Link
@@ -97,12 +95,10 @@ export default function Header() {
                             </form>
                         </li>
                         <li className="lienNav">
-
                             <div
                                 className='btn-cart'
                                 onClick={seeCart}
                                 onMouseEnter={() => seeCart()}
-                            // onMouseLeave={() => seeCart()}
                             >
                                 <GrCart />Panier
                                 </div>
@@ -114,11 +110,9 @@ export default function Header() {
 
                 )}
                 {cartIsOppen &&
-                    <>
-                        <CartContainer
+                    <CartContainer
 
-                        />
-                    </>
+                    />
                 }
             </nav>
 

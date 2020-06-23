@@ -42,14 +42,21 @@
 }
 
 .scrollUpBtn {
+    position: fixed;
     width: 45px;
+    top: 700px;
+    right: 0;
     height: 50px;
     padding: 10px;
-    font-size: 25px;
+    font-size: 45px;
     background-color: none;
     cursor: pointer;
+    z-index: 2000;
+    margin: 0;
+    transition: all 0.3s;
 }
 
 .scrollUpBtn:hover {
-    font-size: 30px;
+    transform: rotate(+360deg);
+    color: #fed925;
 }

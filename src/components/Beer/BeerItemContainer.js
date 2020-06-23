@@ -12,16 +12,6 @@ export default function BeerItemContainer({ match }) {
     const test = useLocation()
     console.log(match.params.price);
 
-
-    const [beer, setBeer] = useState()
-    // console.log(test.item.price);
-
-    // useEffect(() => {
-    //     setBeer(test.state)
-    //     console.log('heere');
-
-    // }, [])
-    // console.log("beer", beer);
     console.log('productSelect', productSelect);
 
     return (

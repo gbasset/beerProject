@@ -32,17 +32,16 @@ export default function BeerItem({ beer }) {
                         <img src={beer.image_url} alt="Package Beer" className="imgCarte" />
                     </div>
                 </Link>
-                <div className="cardBodyGames">
-                    <Link style={{ textDecoration: 'none', color: 'black' }}
+                <div className="cardBodyGames" >
+                    <Link className='lien' style={{ color: 'black' }}
                         to={{
-                            pathname: `beer/${beer.id}/${price}`,
-
+                            pathname: `beer/${beer.id}${price}`,
                             state: {
                                 Beer: beer,
                                 item: item
                             }
                         }}>
-                        <h5 className="titleBeer"> {beer.name}   </h5>
+                        <h5 className="titleBeer" onClick={(e) => chargProduct(beer)} > {beer.name}   </h5>
                     </Link>
                     <legend>  {beer.tagline}</legend>
 

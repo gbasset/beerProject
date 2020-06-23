@@ -1,0 +1,33 @@
+.containerSlide {
+    width: 100%;
+    margin: auto;
+    /* height: 800px; */
+    padding-top: 80px;
+}
+
+.containerSlide img {
+    width: 100%;
+}
+
+.each-slide p {
+    position: relative;
+    width: 60%;
+    top: -237px;
+    padding: 20px;
+    font-size: 20px;
+    color: rgb(233, 229, 229);
+    background-color: rgba(109, 104, 103, 0.267);
+    font-weight: bold;
+    font-size: 100px;
+    text-align: center;
+    margin: auto;
+    z-index: 2000;
+}
+
+.each-slide>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 400px;
+}

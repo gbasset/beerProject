@@ -3,11 +3,8 @@ import React, { createContext, useState, useEffect } from 'react'
 export const Context = createContext()
 
 const ContextProvider = (props) => {
-    const [productList, setProductList] = useState([
-
-    ])
+    const [productList, setProductList] = useState([])
     const [totalCart, setTotalCart] = useState(0)
-
     const [beerList, setBeerList] = useState([])
     const [toggleModales, setToggleModales] = useState(false)
     const [id, setId] = useState(0)
@@ -16,6 +13,7 @@ const ContextProvider = (props) => {
     const [searchBarValue, setSearchBarValue] = useState('')
     const [productSelect, setProductSelect] = useState()
     const [cartIsOppen, setCartIsOppen] = useState(false)
+
     const chooseQuantity = (event, index, id) => {
         const newProductList = productList
         if (typeof newProductList[index].quantity === isNaN) {
@@ -42,7 +40,6 @@ const ContextProvider = (props) => {
                 x.quantity += 1
             }
         })
-        console.log("element", element.name);
 
         if (test === true) {
             setProductList([...newProduct])
@@ -121,6 +118,8 @@ const ContextProvider = (props) => {
     }
 
     const chargProduct = (e) => {
+        console.log(e);
+
         setProductSelect(e)
     }
 

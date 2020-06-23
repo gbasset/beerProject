@@ -2,12 +2,11 @@ import React, { useEffect, useState, useContext, useRef, useLayoutEffect } from 
 import axios from 'axios';
 import BeerItem from './BeerItem';
 import { Context } from '../../Context/Context'
-import CartContainer from '../Cart/CartContainer'
-import { GrCart } from 'react-icons/gr';
-import { AiFillUpCircle } from 'react-icons/ai';
 
-import Header from './../Header/Header';
-export default function BeerContainer(effect, deps, element, useWindow, wait) {
+import { AiFillUpCircle } from 'react-icons/ai';
+import Slide from '../Slide'
+
+export default function BeerContainer() {
     const {
         oppenCloseModale,
         changeTotalCart,
@@ -16,15 +15,28 @@ export default function BeerContainer(effect, deps, element, useWindow, wait) {
         setBeerList,
         DataFiltered
     } = useContext(Context)
-    const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
-    // const [beerList, setBeerList] = useState([])
+    const [isScroll, setIsScroll] = useState(false)
+    const myRef = useRef(null)
+    const executeScroll = () => scrollToRef(myRef)
+    const scrollToRef = (ref) => {
+        window.scrollTo(0, 0
+            // ref.current.offsetTop
+        )
+        setIsScroll(false)
+    }
 
-    // const [cartIsOppen, setCartIsOppen] = useState(false)
-
-    // const seeCart = () => {
-    //     setCartIsOppen(!cartIsOppen)
-    // }
-
+    function handleScroll() {
+        if (document.documentElement.scrollTop >= 1300) {
+            setIsScroll(true);
+        } else {
+            setIsScroll(false);
+        }
+    }
+    console.log('isScroll', isScroll)
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
     useEffect(() => {
         const getBeer = async () => {
             const beers = await axios.get(`https://api.punkapi.com/v2/beers?page=1&per_page=80`)
@@ -58,15 +70,13 @@ export default function BeerContainer(effect, deps, element, useWindow, wait) {
         getBeer2()
         getBeer3()
     }, [])
-    const myRef = useRef(null)
-    const executeScroll = () => scrollToRef(myRef)
+
 
     //https://dev.to/n8tb1t/tracking-scroll-position-with-react-hooks-3bbj
 
     return (
         <>
-            {/* <Header /> */}
-            {/* <button className='btn-cart' onClick={seeCart}><GrCart /></button> */}
+            <Slide />
             <div className="flexAccueil" ref={myRef}>
                 {!DataFiltered ?
                     beerList.map((beer, i) =>
@@ -79,10 +89,12 @@ export default function BeerContainer(effect, deps, element, useWindow, wait) {
                             beer={beer} />
                     )
                 }
-                <div onClick={executeScroll} className="scrollUpBtn">
-                    <AiFillUpCircle />
-                </div>
-
+                {
+                    isScroll &&
+                    <div onClick={executeScroll} className="scrollUpBtn">
+                        <AiFillUpCircle />
+                    </div>
+                }
 
             </div>
         </>

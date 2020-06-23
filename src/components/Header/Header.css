@@ -71,10 +71,7 @@
     border: 2px solid #fff;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-}
-
-.inputRecherche :focus {
-    color: #f59b0a!important;
+    outline: none;
 }
 
 .lienNav button {

@@ -53,21 +53,12 @@ function CartContainer() {
             <div className="footerCart">
                 <div className="btn">commander </div>
             </div>
-            {/* <Form
-                addAProductToList={addAProductToList}
-                length={productList.length}
-            /> */}
+
             {
                 toggleModales &&
-                <>
-                    <ConfirmModal
-                    //key={i}
-                    // close={oppenCloseModale}
-                    // stopPropa={stopPropa}
-                    // deleted={deleteProp}
-                    // id={item.id}
-                    />
-                </>
+                <ConfirmModal
+
+                />
             }
 
         </div>
