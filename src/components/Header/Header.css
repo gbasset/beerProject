@@ -34,7 +34,7 @@
 .lien:hover {
     color: #fff;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .lienNav:nth-child(2) {

@@ -32,7 +32,7 @@ export default function BeerContainer() {
             setIsScroll(false);
         }
     }
-    console.log('isScroll', isScroll)
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
