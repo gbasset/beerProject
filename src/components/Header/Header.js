@@ -8,13 +8,15 @@ import './Header.css'
 import { GrCart } from 'react-icons/gr';
 import CartContainer from '../Cart/CartContainer'
 import { Context } from '../../Context/Context'
+import { FiHeart } from 'react-icons/fi';
 export default function Header() {
     const {
         cartIsOppen,
         seeCart,
         handleChange,
         searchBarValue,
-        productList
+        productList,
+        favorites
     } = useContext(Context)
 
     const [menu, showMenu] = useState(false);
@@ -93,6 +95,14 @@ export default function Header() {
                                 </button>
                                 {/* </Link> */}
                             </form>
+                        </li>
+
+
+                        <li className="lienNav">
+                            <div className="favoritesCount">
+                                <FiHeart />
+                                <div>{favorites.length}</div>
+                            </div>
                         </li>
                         <li className="lienNav">
                             <div

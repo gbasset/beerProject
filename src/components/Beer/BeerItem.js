@@ -1,25 +1,49 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './BeerItem.css'
 import { Link } from 'react-router-dom'
 import { Context } from '../../Context/Context'
+import { FaHeart } from 'react-icons/fa';
+import { FiHeart } from 'react-icons/fi';
+
+
 export default function BeerItem({ beer }) {
     const {
         chargProduct,
         productSelect,
-        addAProductToList
+        addAProductToList,
+        favorites,
+        putFavoriteItem
 
     } = useContext(Context)
-    let price
-    if (beer.abv < 5) {
-        price = 5
+    const [price, setPrice] = useState(0)
+    const [item, setItem] = useState({ id: beer.id, name: beer.name, price: price, picture: beer.image_url, quantity: 1, total: 0 })
+    const getPrice = () => {
+        let newPrice = parseInt(Math.floor(Math.random() * Math.floor(5)));
+        if (newPrice === 0) {
+            getPrice()
+        } else {
+            setPrice(newPrice)
+            setItem(prevState => ({ ...prevState, price: newPrice }))
+        }
     }
-    else if (beer.abv > 5) {
-        price = 10
-    }
-    const item = { id: beer.id, name: beer.name, price: price, picture: beer.image_url, quantity: 1, total: 0 }
+
+    useEffect(() => {
+        getPrice()
+    }, [])
+
     return (
         <div>
             <div className="cartesGames" onClick={(e) => chargProduct(beer)} >
+                <div
+                    className={favorites.forEach(x => x.name === beer.name) ? 'heartFavContain' : 'heartFav'}
+                    onClick={(e) => putFavoriteItem(beer)} >
+                    {favorites.includes(beer.name) ?
+                        <FaHeart />
+                        :
+                        <FiHeart />
+                    }
+                </div>
+
                 <Link className='lien'
                     to={{
                         pathname: `beer/${beer.id}${price}`,

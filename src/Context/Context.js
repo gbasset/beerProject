@@ -13,6 +13,7 @@ const ContextProvider = (props) => {
     const [searchBarValue, setSearchBarValue] = useState('')
     const [productSelect, setProductSelect] = useState()
     const [cartIsOppen, setCartIsOppen] = useState(false)
+    const [favorites, setFavorites] = useState([])
 
     const chooseQuantity = (event, index, id) => {
         const newProductList = productList
@@ -127,6 +128,16 @@ const ContextProvider = (props) => {
     const seeCart = () => {
         setCartIsOppen(!cartIsOppen)
     }
+    const putFavoriteItem = (e) => {
+        let arrayOfFavorites = [...favorites]
+        if (arrayOfFavorites.forEach(x => x.name === e.name)) {
+            const newArray = arrayOfFavorites.filter(x => x.name !== e.name)
+            setFavorites([...newArray])
+        } else {
+            setFavorites([...arrayOfFavorites, e])
+        }
+    }
+
     return (
         <Context.Provider value={{
             oppenCloseModale,
@@ -145,9 +156,12 @@ const ContextProvider = (props) => {
             beerList,
             DataFiltered,
             chargProduct,
+            setProductSelect,
             productSelect,
             cartIsOppen,
-            seeCart
+            seeCart,
+            favorites,
+            putFavoriteItem
 
         }}>
             {props.children}

@@ -3,16 +3,20 @@ import './BeerItemContainer.css'
 import { useParams, useLocation, Link } from 'react-router-dom'
 import { Context } from '../../Context/Context'
 import { AgGridReact } from 'ag-grid-react';
+
+
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 export default function BeerItemContainer({ match }) {
     const {
         chargProduct,
-        productSelect
+        productSelect,
+
     } = useContext(Context)
+    console.log(useParams);
     let { slug } = useParams()
-    const test = useLocation()
-    console.log(match.params.price);
+    const item = useLocation()
+    console.log(item);
 
     console.log('productSelect', productSelect);
     const [columnDefs, setColumnDefs] = useState([{
@@ -65,7 +69,7 @@ export default function BeerItemContainer({ match }) {
                             <ul>{productSelect.ingredients.hops.map(
                                 (x, index) => <li key={index}>{x.name} - {x.amount.value}  {x.amount.unit} </li>
                             )}</ul>
-                            <div className="price">{match.params.price} €</div>
+                            <div className="price">{item.state.item.price} €</div>
                         </div>
                     </div>
                     <div className="tableau">

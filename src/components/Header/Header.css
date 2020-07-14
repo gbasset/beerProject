@@ -124,6 +124,31 @@
     transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
 }
 
+.favoritesCount {
+    font-size: 26px;
+    color: red;
+}
+
+.favoritesCount div {
+    position: fixed;
+    top: 2%;
+    right: 9%;
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 14px;
+    font-family: "Roboto Regular", sans-serif;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 30px;
+    margin: auto;
+    transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
+}
+
 @media screen and (max-width: 950px) {
     .liensNav:nth-child(2) {
         width: auto;
