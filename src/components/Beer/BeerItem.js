@@ -15,6 +15,7 @@ export default function BeerItem({ beer }) {
         putFavoriteItem
 
     } = useContext(Context)
+    const [favoriteArray, setFavoriteArray] = useState([])
     const [price, setPrice] = useState(0)
     const [item, setItem] = useState({ id: beer.id, name: beer.name, price: price, picture: beer.image_url, quantity: 1, total: 0 })
     const getPrice = () => {
@@ -30,14 +31,24 @@ export default function BeerItem({ beer }) {
     useEffect(() => {
         getPrice()
     }, [])
+    useEffect(() => {
+        let array = []
+        favorites.forEach(x => {
+            if (x.name === beer.name) {
+                array.push(x.name)
+            }
+            return array
+        })
+        setFavoriteArray([...array])
 
+    }, [favorites])
     return (
         <div>
             <div className="cartesGames" onClick={(e) => chargProduct(beer)} >
                 <div
-                    className={favorites.forEach(x => x.name === beer.name) ? 'heartFavContain' : 'heartFav'}
+                    className={favoriteArray.includes(beer.name) ? 'heartFavContain' : 'heartFav'}
                     onClick={(e) => putFavoriteItem(beer)} >
-                    {favorites.includes(beer.name) ?
+                    {favoriteArray.includes(beer.name) ?
                         <FaHeart />
                         :
                         <FiHeart />

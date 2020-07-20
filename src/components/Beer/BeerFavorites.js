@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../../Context/Context'
 export default function BeerFavorites() {
     const {
@@ -9,11 +9,12 @@ export default function BeerFavorites() {
     const favArray = {
 
     }
-    const arrayOfFavorites = favorites.map(
-        <div>
+    const arrayOfFavorites = favorites.map(item =>
 
+        <div className="" key={item.id}>
+            {/* <img src={item.image_url} alt="" /> */}
 
-        </div>
+        </div >
 
     )
     return (

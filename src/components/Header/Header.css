@@ -132,7 +132,7 @@
 .favoritesCount div {
     position: fixed;
     top: 2%;
-    right: 9%;
+    right: 114px;
     font-weight: bold;
     color: rgb(255, 0, 0);
     flex-direction: column;

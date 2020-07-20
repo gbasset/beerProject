@@ -130,12 +130,17 @@ const ContextProvider = (props) => {
     }
     const putFavoriteItem = (e) => {
         let arrayOfFavorites = [...favorites]
-        if (arrayOfFavorites.forEach(x => x.name === e.name)) {
+        let arrayOfFavoritesExistant = []
+        arrayOfFavorites.forEach(item => {
+            arrayOfFavoritesExistant.push(item.name)
+        })
+
+        if (arrayOfFavoritesExistant.includes(e.name)) {
             const newArray = arrayOfFavorites.filter(x => x.name !== e.name)
             setFavorites([...newArray])
-        } else {
-            setFavorites([...arrayOfFavorites, e])
+            return
         }
+        setFavorites([...arrayOfFavorites, e])
     }
 
     return (

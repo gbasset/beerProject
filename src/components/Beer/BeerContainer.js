@@ -5,6 +5,7 @@ import { Context } from '../../Context/Context'
 
 import { AiFillUpCircle } from 'react-icons/ai';
 import Slide from '../Slide'
+import BeerFavorites from './BeerFavorites';
 
 export default function BeerContainer() {
     const {
@@ -77,6 +78,7 @@ export default function BeerContainer() {
     return (
         <>
             <Slide />
+            <BeerFavorites />
             <div className="flexAccueil" ref={myRef}>
                 {!DataFiltered ?
                     beerList.map((beer, i) =>
