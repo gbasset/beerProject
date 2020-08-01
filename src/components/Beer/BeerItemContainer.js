@@ -4,7 +4,6 @@ import { useParams, useLocation, Link } from 'react-router-dom'
 import { Context } from '../../Context/Context'
 import { AgGridReact } from 'ag-grid-react';
 
-
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 export default function BeerItemContainer({ match }) {
@@ -13,39 +12,13 @@ export default function BeerItemContainer({ match }) {
         productSelect,
 
     } = useContext(Context)
-    console.log(useParams);
+
     let { slug } = useParams()
     const item = useLocation()
     console.log(item);
 
     console.log('productSelect', productSelect);
-    const [columnDefs, setColumnDefs] = useState([{
-        headerName: "Make", field: "make", sortable: true, filter: true, width: 300,
-    }, {
-        headerName: "Model", field: "model", sortable: true, filter: true, width: 300,
-    }, {
-        headerName: "Price", field: "price", sortable: true, filter: true, width: 300,
-    },
 
-
-    ])
-
-    const [rowData, setRowData] = useState([{
-        make: "Toyota", model: "Celica", price: 35000
-    }, {
-        make: "Ford", model: "Mondeo", price: 32000
-    },
-    {
-        make: "Porsche", model: "Boxter", price: 72000
-    },
-    {
-        make: "Deudeuche", model: "zizi", price: 72000
-    },
-    {
-        make: "Cuic", model: "COINCOIN", price: 728700
-    }
-
-    ])
 
     return (
         <div className="beerItemContainer2">
@@ -73,21 +46,7 @@ export default function BeerItemContainer({ match }) {
                         </div>
                     </div>
                     <div className="tableau">
-                        <div
-                            className="ag-theme-alpine"
-                            style={{
-                                height: '450px',
-                                // maxHeight: '800px',
-                                width: '900px'
-                            }}
-                        >
-                            <AgGridReact
-                                columnDefs={columnDefs}
-                                rowData={rowData}
 
-                            >
-                            </AgGridReact>
-                        </div>
                     </div>
 
                 </>

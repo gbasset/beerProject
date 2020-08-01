@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Context } from '../../Context/Context'
+import './BeerFavorites.css'
 export default function BeerFavorites() {
     const {
         cartIsOppen,
@@ -9,17 +10,17 @@ export default function BeerFavorites() {
     const favArray = {
 
     }
-    const arrayOfFavorites = favorites.map(item =>
+    console.log("favorites", favorites);
 
-        <div className="" key={item.id}>
-            {/* <img src={item.image_url} alt="" /> */}
-
-        </div >
-
-    )
     return (
-        <div>
-            {arrayOfFavorites}
-        </div>
+        <div className="itemFavortiteContainer" >
+            {favorites.map(item =>
+                <div className="itemFavorite" key={item.id} >
+                    <img className="imgFavoriteItem" src={item.image_url} alt={item.name} />
+                    <p>{item.name}</p>
+                </div>
+            )
+            }
+        </div >
     )
 }

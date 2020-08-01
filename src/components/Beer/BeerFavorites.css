@@ -1,0 +1,15 @@
+.itemFavortiteContainer {
+    height: 400px;
+    width: 300px;
+    background-color: seashell;
+    position: fixed;
+    top: 94px;
+    right: 0px;
+}
+
+.imgFavoriteItem {
+    /* height: 10px; */
+    max-width: 25px;
+}
+
+.itemFavorite {}

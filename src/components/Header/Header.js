@@ -9,6 +9,7 @@ import { GrCart } from 'react-icons/gr';
 import CartContainer from '../Cart/CartContainer'
 import { Context } from '../../Context/Context'
 import { FiHeart } from 'react-icons/fi';
+import BeerFavorites from './../Beer/BeerFavorites';
 export default function Header() {
     const {
         cartIsOppen,
@@ -16,7 +17,9 @@ export default function Header() {
         handleChange,
         searchBarValue,
         productList,
-        favorites
+        favorites,
+        favoritesIsOppen,
+        setFavoritesIsOppen
     } = useContext(Context)
 
     const [menu, showMenu] = useState(false);
@@ -123,6 +126,10 @@ export default function Header() {
                     <CartContainer
 
                     />
+                }
+                {
+                    favoritesIsOppen &&
+                    < BeerFavorites />
                 }
             </nav>
 
