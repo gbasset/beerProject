@@ -127,10 +127,10 @@ export default function Header() {
 
                     />
                 }
-                {
+                {/* {
                     favoritesIsOppen &&
                     < BeerFavorites />
-                }
+                } */}
             </nav>
 
             <div className="menuResBtn">

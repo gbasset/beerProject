@@ -3,7 +3,7 @@ import './App.css';
 
 import BeerContainer from './components/Beer/BeerContainer';
 import ContextProvider from './Context/Context'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from './components/Header/Header';
 import BeerItemContainer from './components/Beer/BeerItemContainer';
 function App() {
