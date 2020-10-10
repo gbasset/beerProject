@@ -14,13 +14,13 @@ export default function BeerFavorites() {
 
     return (
         <div className="itemFavortiteContainer" >
-            {/* {favorites.map(item =>
+            {favorites.map(item =>
                 <div className="itemFavorite" key={item.id} >
                     <img className="imgFavoriteItem" src={item.image_url} alt={item.name} />
                     <p>{item.name}</p>
                 </div>
             )
-            } */}
+            }
         </div >
     )
 }

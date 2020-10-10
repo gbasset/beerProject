@@ -3,7 +3,7 @@ import logo from '../../Asset/beer-311090.svg'
 import search from './Search.svg'
 import menuIco from './Menuico.svg'
 import croix from './Croix.svg'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Redirect, useLocation } from 'react-router-dom';
 import './Header.css'
 import { GrCart } from 'react-icons/gr';
 import CartContainer from '../Cart/CartContainer'
@@ -19,13 +19,17 @@ export default function Header() {
         productList,
         favorites,
         favoritesIsOppen,
-        setFavoritesIsOppen
+        setFavoritesIsOppen,
+        redirect,
+        setRedirect
     } = useContext(Context)
 
     const [menu, showMenu] = useState(false);
     const [smallScreen, setSmallScreen] = useState(false);
     const [searchInput, setSearch] = useState('');
 
+    const item = useLocation()
+    console.log("item", item);
     useEffect(() => {
         const mediaQuery = window.matchMedia("(max-width: 900px)");
         // addlistener c'est comme addeventlisterner pour les medias queries en JS
@@ -66,6 +70,9 @@ export default function Header() {
         setSearch(e.target.value);
     }
 
+    if (redirect && item.pathname !== '/favorites') {
+        return <Redirect push to="/favorites" />
+    }
 
     return (
         <>
@@ -101,11 +108,13 @@ export default function Header() {
                         </li>
 
 
-                        <li className="lienNav">
+                        <li className="lienNav" onClick={() => setRedirect(true)} >
+
                             <div className="favoritesCount">
                                 <FiHeart />
                                 <div>{favorites.length}</div>
                             </div>
+
                         </li>
                         <li className="lienNav">
                             <div

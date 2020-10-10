@@ -6,6 +6,7 @@ import ContextProvider from './Context/Context'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from './components/Header/Header';
 import BeerItemContainer from './components/Beer/BeerItemContainer';
+import FavoritesContainer from './components/Favory/FavoritesContainer';
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={BeerContainer} />
           <Route exact path="/beer/:slug:price" component={BeerItemContainer} />
+          <Route exact path="/favorites" component={FavoritesContainer} />
         </Switch>
 
         {/* </div> */}

@@ -1,31 +1,24 @@
 .beerItemContainer2 {
+    display: flex;
     position: relative;
+    flex-wrap: wrap;
+    align-items: center;
     top: 93px;
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 4fr 1fr;
-    height: 100vh;
-    grid-template-areas: "containerimg decriptionBeer" "tableau  tableau";
+    justify-content: space-around;
     background-color: #e0e0e0b8;
 }
 
 .containerImg {
-    grid-area: containerimg;
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 20px;
+    margin-left: 82px;
 }
 
 .pictureBeerItem {
     max-height: 450px;
     max-width: 450px;
-}
-
-.descriptionBeer {
-    background-color: rgba(194, 200, 200, 0.157);
-    border-radius: 5px;
 }
 
 .descriptionBeer ul {
@@ -47,8 +40,10 @@
 }
 
 .descriptionBeer {
-    grid-area: decriptionBeer;
     padding: 20px;
+    margin-left: 82px;
+    background-color: rgb(255 255 255 / 88%);
+    border-radius: 5px;
 }
 
 .descriptionBeer h2 {
@@ -63,16 +58,18 @@
 }
 
 .tableau {
-    grid-area: tableau;
+    top: 5px;
     text-align: center;
     display: flex;
+    justify-content: space-evenly;
     flex-direction: column;
     margin: auto;
-    height: 400px;
-    /* width: 80%; */
-    margin: auto;
-    /* height: 400px;
-    /* padding: 20px; */
+    margin: 98px auto;
+    width: 70%;
+}
+
+.tableau ul {
+    list-style-type: none;
 }
 
 /* .contain {
@@ -111,4 +108,17 @@
 .scrollUpBtn:hover {
     transform: rotate(+360deg);
     color: #fed925;
+}
+
+@media screen and (max-width: 730px) {
+    .descriptionBeer {
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+    .tableau {
+        width: auto;
+    }
+    .containerImg {
+        margin-left: 0px;
+    }
 }

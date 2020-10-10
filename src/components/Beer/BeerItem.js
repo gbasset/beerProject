@@ -81,15 +81,8 @@ export default function BeerItem({ beer }) {
                     <legend>  {beer.tagline}</legend>
 
                     <p className="tipsBeer">{beer.brewers_tips}</p>
-                    {/* <Link className='lien'
-                        to={{
-                            pathname: "beer/" + beer.id,
-                            state: {
-                                Beer: beer
-                            }
-                        }}> */}
-                    <div className="btnCarte" onClick={(e) => addAProductToList(item)}> Ajouter </div>
-                    {/* </Link> */}
+
+                    <div className="btnCarte" onClick={(e) => addAProductToList(item)}> <p>Ajouter</p> </div>
                 </div>
             </div>
         </div>

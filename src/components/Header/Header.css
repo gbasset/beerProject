@@ -127,6 +127,7 @@
 .favoritesCount {
     font-size: 26px;
     color: red;
+    cursor: pointer;
 }
 
 .favoritesCount div {

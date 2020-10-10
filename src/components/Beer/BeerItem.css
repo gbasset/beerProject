@@ -74,11 +74,21 @@
     border-radius: 5px;
     padding: 2px 5px;
     cursor: pointer;
+    border: 2px solid #ffffff00;
+    text-decoration: none;
+}
+
+.btnCarte p {
+    text-decoration: none;
 }
 
 .btnCarte:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: "fff";
+    font-size: 17px;
+    color: rgb(254, 217, 37);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
 }
 
 .titleBeer {

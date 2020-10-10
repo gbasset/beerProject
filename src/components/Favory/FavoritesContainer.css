@@ -1,0 +1,13 @@
+.favorites_container {
+    position: relative;
+    top: 100px;
+}
+
+.favorite_item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.favorite_item img {
+    max-height: 150px;
+}

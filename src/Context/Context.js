@@ -15,7 +15,7 @@ const ContextProvider = (props) => {
     const [cartIsOppen, setCartIsOppen] = useState(false)
     const [favorites, setFavorites] = useState([])
     const [favoritesIsOppen, setFavoritesIsOppen] = useState(false)
-    console.log("favorites", favorites);
+    const [redirect, setRedirect] = useState(false);
     const chooseQuantity = (event, index, id) => {
         const newProductList = productList
         if (typeof newProductList[index].quantity === isNaN) {
@@ -169,7 +169,9 @@ const ContextProvider = (props) => {
             favorites,
             putFavoriteItem,
             favoritesIsOppen,
-            setFavoritesIsOppen
+            setFavoritesIsOppen,
+            redirect,
+            setRedirect
 
         }}>
             {props.children}

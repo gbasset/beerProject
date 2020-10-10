@@ -1,4 +1,5 @@
 .itemFavortiteContainer {
+    display: none;
     height: 400px;
     width: 300px;
     background-color: seashell;
