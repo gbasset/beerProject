@@ -47,7 +47,7 @@ export default function BeerItem({ beer }) {
             <div className="cartesGames" onClick={(e) => chargProduct(beer)} >
                 <div
                     className={favoriteArray.includes(beer.name) ? 'heartFavContain' : 'heartFav'}
-                    onClick={(e) => putFavoriteItem(beer)} >
+                    onClick={(e) => putFavoriteItem({ beer, ...item })} >
                     {favoriteArray.includes(beer.name) ?
                         <FaHeart />
                         :

@@ -89,7 +89,6 @@ export default function Header() {
                             </NavLink>
                         </li>
 
-
                         <li className="lienNav">
                             <form className="formSubmit" onSubmit={handleSubmit}>
                                 <input required value={searchBarValue} onChange={handleChange} type="text" className="inputRecherche" />

@@ -8,25 +8,34 @@ export default function FavoritesContainer() {
         favorites,
         putFavoriteItem,
         redirect,
+        addAProductToList,
         setRedirect
     } = useContext(Context)
-    console.log("favorites", favorites);
     useEffect(() => {
         setRedirect(false)
     }, [])
     return (
-        <div className="favorites_container" >
-            {
-                favorites && favorites.map((fav, i) =>
-                    <div className="favorite_item" key={i}>
-                        <img src={fav.image_url} alt="beer" />
-                        <div>
-                            <h1>{fav.name}</h1>
+        <>
+            <div className="favorites_container" >
+                <h1 className="title_favorite">My Favorites</h1>
+                <div className="contain_list_favorites">
 
-                        </div>
-                    </div>
-                )
-            }
-        </div>
+                    {
+                        favorites && favorites.map((fav, i) =>
+                            <div className="favorite_item" key={i}>
+                                <img src={fav.picture} alt="beer" />
+                                <div>
+                                    <h1>{fav.name}</h1>
+                                </div>
+                                <div>
+                                    <div className="price">{fav.price} €</div>
+                                    <div className="btnCarte" onClick={(e) => addAProductToList(fav)}>Ajouter</div>
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+            </div>
+        </>
     )
 }

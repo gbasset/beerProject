@@ -47,7 +47,7 @@ export default function BeerItemContainer({ match }) {
                         <div className="descriptionBeer">
                             <div
                                 className={favoriteArray.includes(productSelect.name) ? 'heartFavContain' : 'heartFav'}
-                                onClick={(e) => putFavoriteItem(productSelect)} >
+                                onClick={(e) => putFavoriteItem({ productSelect, ...item.state.item })} >
                                 {favoriteArray.includes(productSelect.name) ?
                                     <FaHeart />
                                     :
