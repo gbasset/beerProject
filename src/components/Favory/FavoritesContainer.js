@@ -16,8 +16,8 @@ export default function FavoritesContainer() {
     }, [])
     return (
         <>
+            <h1 className="title_favorite">My Favorites</h1>
             <div className="favorites_container" >
-                <h1 className="title_favorite">My Favorites</h1>
                 <div className="contain_list_favorites">
 
                     {
