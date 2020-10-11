@@ -23,7 +23,7 @@ function CartContainer() {
 
     //https://punkapi.com/documentation/v2
     const item = useLocation()
-    console.log("item", item);
+
     const [redirect, setRedirect] = useState(false);
     if (redirect && item.pathname !== '/order') {
         return <Redirect push to="/order" />
@@ -59,7 +59,7 @@ function CartContainer() {
                 <div
                     className="btn"
                     onClick={() => setRedirect(true)}
-                >commander </div>
+                >Buy </div>
             </div>
 
             {

@@ -82,7 +82,7 @@ export default function BeerItem({ beer }) {
 
                     <p className="tipsBeer">{beer.brewers_tips}</p>
 
-                    <div className="btnCarte" onClick={(e) => addAProductToList(item)}> <p>Ajouter</p> </div>
+                    <div className="btnCarte" onClick={(e) => addAProductToList(item)}> <p>Add</p> </div>
                 </div>
             </div>
         </div>

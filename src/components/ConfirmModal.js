@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import './ConfirmModal.css'
 import { Context } from '../Context/Context'
-export default function ConfirmModal() {
+export default function ConfirmModal(props) {
     const {
         oppenCloseModale,
         changeTotalCart,
@@ -27,7 +27,10 @@ export default function ConfirmModal() {
                 </div>
                 <div className='btnGroup'>
                     <div className="btnCancelModal " onClick={(e) => oppenCloseModale(e)} >Annuler</div>
-                    <div className="btnDeleteModal" onClick={(e) => deleteProp(id, oppenCloseModale)}>Supprimer</div>
+                    <div className="btnDeleteModal"
+                        onClick={!props.id ? (e) => deleteProp(id, oppenCloseModale) :
+                            (e) => deleteProp(props.id, props.closeModal)
+                        }>Supprimer</div>
                 </div>
             </div>
         </div>

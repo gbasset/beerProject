@@ -18,9 +18,6 @@ export default function BeerItemContainer({ match }) {
 
     let { slug } = useParams()
     const item = useLocation()
-    console.log(item);
-
-    console.log('productSelect', productSelect);
     const [favoriteArray, setFavoriteArray] = useState([])
     useEffect(() => {
         let array = []
@@ -64,7 +61,7 @@ export default function BeerItemContainer({ match }) {
                                 )}</ul>
                                 <h5>{productSelect.abv}° Alcool By Volume </h5>
                                 <div className="price">{item.state && item.state.item.price} €</div>
-                                <div className="btnCarte" onClick={(e) => addAProductToList(item.state.item)}>Ajouter</div>
+                                <div className="btnCarte" onClick={(e) => addAProductToList(item.state.item)}>Add</div>
                             </div>
                         </div>
 

@@ -30,7 +30,7 @@ export default function Form({ addAProductToList, length }) {
                     <input type="text" className="field" name="price" value={newElement.price} onChange={(e) => createNewElement(e)} />
                 </label>
             </form>
-            <button onClick={() => addAProductToList(newElement)}>Ajouter</button>
+            <button onClick={() => addAProductToList(newElement)}>Add</button>
         </div>
     )
 }

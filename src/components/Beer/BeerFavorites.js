@@ -10,7 +10,6 @@ export default function BeerFavorites() {
     const favArray = {
 
     }
-    console.log("favorites", favorites);
 
     return (
         <div className="itemFavortiteContainer" >

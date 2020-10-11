@@ -36,3 +36,47 @@ table p {
 button {
   cursor: pointer;
 }
+
+.btnUi {
+  box-sizing: content-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 20px;
+  min-height: 20px;
+  padding: 8px 10px;
+  border: solid 1px transparent;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 100ms ease-in-out;
+  -moz-transition: all 100ms ease-in-out;
+  -ms-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+}
+
+.btnUi:active {
+  transform: scale(0.85);
+}
+
+/* Colors */
+
+.btn_primary {
+  color: #FFFFFF;
+  background: rgb(254, 217, 37);
+}
+
+.btn_primary:hover, .btn_primary:focus {
+  background: rgb(255, 222, 55);
+}

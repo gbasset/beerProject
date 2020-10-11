@@ -29,7 +29,7 @@ export default function Header() {
     const [searchInput, setSearch] = useState('');
 
     const item = useLocation()
-    console.log("item", item);
+
     useEffect(() => {
         const mediaQuery = window.matchMedia("(max-width: 900px)");
         // addlistener c'est comme addeventlisterner pour les medias queries en JS

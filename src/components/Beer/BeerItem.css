@@ -91,6 +91,10 @@
     border: 2px solid black;
 }
 
+.btnCarte:active {
+    transform: scale(0.90);
+}
+
 .titleBeer {
     /* white-space: nowrap; */
     /* text-overflow: clip; */

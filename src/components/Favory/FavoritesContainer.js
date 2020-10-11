@@ -60,7 +60,7 @@ export default function FavoritesContainer() {
                                 </div>
                                 <div>
                                     <div className="price">{fav.price} €</div>
-                                    <div className="btnCarte" onClick={(e) => addAProductToList(fav)}>Ajouter</div>
+                                    <div className="btnCarte" onClick={(e) => addAProductToList(fav)}>Add</div>
                                 </div>
                             </div>
                         )

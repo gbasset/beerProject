@@ -16,6 +16,14 @@ const ContextProvider = (props) => {
     const [favorites, setFavorites] = useState([])
     const [favoritesIsOppen, setFavoritesIsOppen] = useState(false)
     const [redirect, setRedirect] = useState(false);
+    const [order, setOrder] = useState({
+        first_name: '',
+        last_name: '',
+        phone: '',
+        adress: '',
+        credit: '',
+
+    });
     const chooseQuantity = (event, index, id) => {
         const newProductList = productList
         if (typeof newProductList[index].quantity === isNaN) {
@@ -120,8 +128,6 @@ const ContextProvider = (props) => {
     }
 
     const chargProduct = (e) => {
-        console.log(e);
-
         setProductSelect(e)
     }
 
@@ -171,7 +177,11 @@ const ContextProvider = (props) => {
             favoritesIsOppen,
             setFavoritesIsOppen,
             redirect,
-            setRedirect
+            setRedirect,
+            order,
+            setOrder,
+            setTotalCart,
+            setProductList
 
         }}>
             {props.children}
