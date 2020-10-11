@@ -6,7 +6,7 @@ import TableHead from './TableHead';
 import { Context } from '../../Context/Context'
 import ConfirmModal from './../ConfirmModal';
 import './CartContainer.css'
-
+import { Link, NavLink, Redirect, useLocation } from 'react-router-dom';
 function CartContainer() {
     const {
         oppenCloseModale,
@@ -22,7 +22,12 @@ function CartContainer() {
     } = useContext(Context)
 
     //https://punkapi.com/documentation/v2
-
+    const item = useLocation()
+    console.log("item", item);
+    const [redirect, setRedirect] = useState(false);
+    if (redirect && item.pathname !== '/order') {
+        return <Redirect push to="/order" />
+    }
     return (
         <div className="cartContainer" onMouseLeave={() => seeCart()}>
             <div className="headerCart">
@@ -51,7 +56,10 @@ function CartContainer() {
                 </table>
             </div>
             <div className="footerCart">
-                <div className="btn">commander </div>
+                <div
+                    className="btn"
+                    onClick={() => setRedirect(true)}
+                >commander </div>
             </div>
 
             {

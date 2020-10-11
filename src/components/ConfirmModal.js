@@ -26,8 +26,8 @@ export default function ConfirmModal() {
                     Voullez vous vraiment supprimer ce produit ?
                 </div>
                 <div className='btnGroup'>
-                    <div className="btnCancelModal " onClick={(e) => oppenCloseModale(e)} >Cancel</div>
-                    <div className="btnDeleteModal" onClick={(e) => deleteProp(id, oppenCloseModale)}>Delete</div>
+                    <div className="btnCancelModal " onClick={(e) => oppenCloseModale(e)} >Annuler</div>
+                    <div className="btnDeleteModal" onClick={(e) => deleteProp(id, oppenCloseModale)}>Supprimer</div>
                 </div>
             </div>
         </div>
