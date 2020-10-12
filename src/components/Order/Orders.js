@@ -1,10 +1,11 @@
-import React, { useState, useContext, } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import './Orders.css'
 import FormOrderBilling from './FormOrderBilling';
 import { Context } from '../../Context/Context'
 
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { BsFillTrashFill } from 'react-icons/bs';
+import { IoMdArrowRoundBack } from 'react-icons/io';
 import ConfirmModal from './../ConfirmModal';
 export default function Orders() {
     const {
@@ -19,14 +20,17 @@ export default function Orders() {
         addAProductToList,
         totalCart,
         seeCart,
-        order
+        order,
+        setRedirectCart
     } = useContext(Context)
 
     const [oppenTheForm, setOppenTheForm] = useState(false);
     const [oppenModal, setOppenModal] = useState(false);
     const [itemToPut, setItemToPut] = useState();
     const [theFormIsSent, setTheFormIsSent] = useState(false);
-
+    useEffect(() => {
+        setRedirectCart(false)
+    }, [])
     return (
 
         <div className="container_order">
@@ -58,7 +62,6 @@ export default function Orders() {
                                         <BsFillTrashFill />
                                     </div>
                                     <img src={fav.picture} alt="beer" />
-
                                     <div className="titleBeerFav">
                                         <Link className='lien' style={{ color: 'black' }}
                                             to={{
@@ -68,7 +71,6 @@ export default function Orders() {
                                                     item: fav
                                                 }
                                             }}>
-
                                             <h1>{fav.name}</h1>
                                         </Link>
                                     </div>
@@ -82,7 +84,6 @@ export default function Orders() {
                                         />
                                         <div className="price">{fav.price} €</div>
                                     </div>
-
                                 </div>
                             )
                         }
@@ -94,7 +95,7 @@ export default function Orders() {
                 {
                     oppenTheForm && !theFormIsSent &&
                     <>
-                        <div onClick={() => setOppenTheForm(false)}>Return</div>
+                        <div className="return_btn" onClick={() => setOppenTheForm(false)}> <IoMdArrowRoundBack /></div>
                         <FormOrderBilling
                             setTheFormIsSent={(e) => setTheFormIsSent(true)}
                         />
@@ -107,10 +108,17 @@ export default function Orders() {
                             <p>Thank you for your order {order.first_name} {order.last_name} !</p>
                             <p>You will soon receive a summary of the order by email .</p>
                         </div>
-                        <div className="btnUi btn_primary" >Go to Home</div>
+                        <Link to="/" className="lien" >
+                            <div
+                                className="btnUi btn_primary"
+                                style={{ marginTop: "34px" }}
+                            >
+                                Go to Home
+                        </div>
+                        </Link>
                     </>
                 }
             </div>
-        </div>
+        </div >
     )
 }

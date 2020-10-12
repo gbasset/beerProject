@@ -47,8 +47,18 @@
 }
 
 .order_message {
-    color: springgreen;
-    font-size: 20px;
+    color: #329563;
+    font-size: 38px;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 30%;
+}
+
+.return_btn {
+    cursor: pointer;
+    width: 50px;
+    font-size: 40px;
+}
+
+.return_btn:hover {
+    color: rgb(126, 123, 123);
 }

@@ -21,7 +21,9 @@ export default function Header() {
         favoritesIsOppen,
         setFavoritesIsOppen,
         redirect,
-        setRedirect
+        setRedirect,
+        redirectCart,
+        setRedirectCart
     } = useContext(Context)
 
     const [menu, showMenu] = useState(false);
@@ -74,6 +76,10 @@ export default function Header() {
         return <Redirect push to="/favorites" />
     }
 
+    if (redirectCart && item.pathname !== '/order') {
+        return <Redirect push to="/order" />
+    }
+
     return (
         <>
             <nav className="headerTop">
@@ -119,9 +125,10 @@ export default function Header() {
                             <div
                                 className='btn-cart'
                                 onClick={seeCart}
-                                onMouseEnter={() => seeCart()}
+                                // onMouseEnter={() => seeCart()}
+                                onClick={() => setRedirectCart(true)}
                             >
-                                <GrCart />Panier
+                                <GrCart />Cart
                                 </div>
                             <div className="containCartItem">
                                 <div className="totalCartItem">{productList.length}</div>

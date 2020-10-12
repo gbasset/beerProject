@@ -64,8 +64,6 @@ export default function BeerItemContainer({ match }) {
                                 <div className="btnCarte" onClick={(e) => addAProductToList(item.state.item)}>Add</div>
                             </div>
                         </div>
-
-
                     </>
                 }
             </div>

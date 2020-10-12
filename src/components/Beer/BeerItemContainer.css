@@ -73,6 +73,10 @@
     list-style-type: none;
 }
 
+.tableau p {
+    text-align: left;
+}
+
 /* .contain {
     position: relative;
     top: 93px;

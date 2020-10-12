@@ -16,6 +16,7 @@ const ContextProvider = (props) => {
     const [favorites, setFavorites] = useState([])
     const [favoritesIsOppen, setFavoritesIsOppen] = useState(false)
     const [redirect, setRedirect] = useState(false);
+    const [redirectCart, setRedirectCart] = useState(false);
     const [order, setOrder] = useState({
         first_name: '',
         last_name: '',
@@ -181,8 +182,9 @@ const ContextProvider = (props) => {
             order,
             setOrder,
             setTotalCart,
-            setProductList
-
+            setProductList,
+            redirectCart,
+            setRedirectCart
         }}>
             {props.children}
         </Context.Provider>
