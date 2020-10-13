@@ -49,7 +49,7 @@ export default function Header() {
     useEffect(() => {
         const cart = JSON.parse(localStorage.getItem('cartBeer'))
         const fav = JSON.parse(localStorage.getItem('favBeer'))
-        if (cart.length > 0) {
+        if (cart && cart.length > 0) {
             setCartLocal(cart)
         }
         if (fav) {
