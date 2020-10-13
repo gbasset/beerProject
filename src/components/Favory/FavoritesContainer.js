@@ -21,7 +21,6 @@ export default function FavoritesContainer() {
     const [favoriteArray, setFavoriteArray] = useState([])
     useEffect(() => {
         let array = []
-        console.log("favorites", favorites);
         if (favorites && productSelect) {
             favorites.forEach(x => {
                 if (x.name === productSelect.name) {
