@@ -21,13 +21,16 @@ export default function FavoritesContainer() {
     const [favoriteArray, setFavoriteArray] = useState([])
     useEffect(() => {
         let array = []
-        favorites.forEach(x => {
-            if (x.name === productSelect.name) {
-                array.push(x.name)
-            }
-            return array
-        })
-        setFavoriteArray([...array])
+        console.log("favorites", favorites);
+        if (favorites && productSelect) {
+            favorites.forEach(x => {
+                if (x.name === productSelect.name) {
+                    array.push(x.name)
+                }
+                return array
+            })
+            setFavoriteArray([...array])
+        }
 
     }, [favorites])
     return (

@@ -107,3 +107,9 @@
 .qteInput {
     max-width: 40px;
 }
+
+@media screen and (max-width: 900px) {
+    .btn-cart {
+        width: auto;
+    }
+}

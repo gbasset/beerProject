@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import './BeerItemContainer.css'
-import { useParams, useLocation, Link } from 'react-router-dom'
+import { useParams, useLocation, Link, Redirect } from 'react-router-dom'
 import { Context } from '../../Context/Context'
 import { AgGridReact } from 'ag-grid-react';
 import { FaHeart } from 'react-icons/fa';
@@ -19,10 +19,11 @@ export default function BeerItemContainer({ match }) {
     let { slug } = useParams()
     const item = useLocation()
     const [favoriteArray, setFavoriteArray] = useState([])
+    const [redirectToHome, setRedirectToHome] = useState(false)
     useEffect(() => {
         let array = []
         favorites.forEach(x => {
-            if (x.name === productSelect.name) {
+            if (productSelect && x.name === productSelect.name) {
                 array.push(x.name)
             }
             return array
@@ -30,6 +31,14 @@ export default function BeerItemContainer({ match }) {
         setFavoriteArray([...array])
 
     }, [favorites])
+    useEffect(() => {
+        if (!item.state) {
+            setRedirectToHome(true)
+        }
+    }, [])
+    if (redirectToHome) {
+        return <Redirect push to="/home" />
+    }
     return (
         <>
             <div className="beerItemContainer2">

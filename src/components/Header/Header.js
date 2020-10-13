@@ -18,17 +18,21 @@ export default function Header() {
         searchBarValue,
         productList,
         favorites,
+        setFavorites,
         favoritesIsOppen,
         setFavoritesIsOppen,
         redirect,
         setRedirect,
         redirectCart,
-        setRedirectCart
+        setRedirectCart,
+        setProductList
     } = useContext(Context)
 
     const [menu, showMenu] = useState(false);
     const [smallScreen, setSmallScreen] = useState(false);
     const [searchInput, setSearch] = useState('');
+    const [cartLocal, setCartLocal] = useState();
+    const [localFav, setLocalFav] = useState();
 
     const item = useLocation()
 
@@ -37,13 +41,32 @@ export default function Header() {
         // addlistener c'est comme addeventlisterner pour les medias queries en JS
         mediaQuery.addListener(handleMediaQueryChange);
         handleMediaQueryChange(mediaQuery);
-
         return () => {
             mediaQuery.removeListener(handleMediaQueryChange);
         }
 
     })
+    useEffect(() => {
+        const cart = JSON.parse(localStorage.getItem('cartBeer'))
+        const fav = JSON.parse(localStorage.getItem('favBeer'))
+        if (cart.length > 0) {
+            setCartLocal(cart)
+        }
+        if (fav) {
+            setLocalFav(fav)
+        }
+    }, [])
 
+    useEffect(() => {
+        if (cartLocal) {
+            setProductList(cartLocal)
+        }
+    }, [cartLocal])
+    useEffect(() => {
+        if (localFav) {
+            setFavorites(localFav)
+        }
+    }, [localFav])
     const handleMediaQueryChange = mediaQuery => {
         if (mediaQuery.matches) {
             setSmallScreen(true);
@@ -57,7 +80,6 @@ export default function Header() {
     }
 
     const hideMenu = () => {
-
         if (menu === true) {
             showMenu(!menu);
         }
@@ -89,31 +111,33 @@ export default function Header() {
                     <ul className="listeMenu">
 
                         <li onClick={hideMenu} className="lienNav" title='Accueil'>
-                            <NavLink activeStyle={{ color: "#7bed9f" }} className="lien" exact to="/">
-                                <img src={logo} alt="logo beer" className="logo" />
+                            <NavLink activeStyle={{ color: "#7bed9f" }} className="lien" exact to="/home">
+                                <img src={logo} onClick={hideMenu} alt="logo beer" className="logo" />
 
                             </NavLink>
                         </li>
 
                         <li className="lienNav">
-                            <form className="formSubmit" onSubmit={handleSubmit}>
-                                <input required value={searchBarValue} onChange={handleChange} type="text" className="inputRecherche" />
+                            {item.pathname == "/home" &&
+                                <form className="formSubmit" onSubmit={handleSubmit}>
+                                    <input required value={searchBarValue} onChange={handleChange} type="text" className="inputRecherche" />
 
-                                {/* <Link
+                                    {/* <Link
                                     className="lien"
                                     to={{
                                         pathname: `/resultats/${searchInput}`
                                     }}
                                 > */}
-                                <button type="submit">
-                                    <img src={search} alt="icone loupe" className="logoLoupe" />
-                                </button>
-                                {/* </Link> */}
-                            </form>
+                                    <button type="submit" onClick={hideMenu}>
+                                        <img src={search} alt="icone loupe" className="logoLoupe" />
+                                    </button>
+                                    {/* </Link> */}
+                                </form>}
                         </li>
 
 
-                        <li className="lienNav" onClick={() => setRedirect(true)} >
+
+                        <li className="lienNav" onClick={() => { setRedirect(true); hideMenu() }} >
 
                             <div className="favoritesCount">
                                 <FiHeart />
@@ -126,12 +150,12 @@ export default function Header() {
                                 className='btn-cart'
                                 onClick={seeCart}
                                 // onMouseEnter={() => seeCart()}
-                                onClick={() => setRedirectCart(true)}
+                                onClick={() => { setRedirectCart(true); hideMenu() }}
                             >
                                 <GrCart />Cart
                                 </div>
                             <div className="containCartItem">
-                                <div className="totalCartItem">{productList.length}</div>
+                                <div className="totalCartItem">{productList ? productList.length : 0}</div>
                             </div>
                         </li>
                     </ul>

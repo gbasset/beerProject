@@ -15,6 +15,7 @@ export default function BeerItem({ beer }) {
         putFavoriteItem
 
     } = useContext(Context)
+
     const [favoriteArray, setFavoriteArray] = useState([])
     const [price, setPrice] = useState(0)
     const [item, setItem] = useState({ id: beer.id, name: beer.name, price: price, picture: beer.image_url, quantity: 1, total: 0 })

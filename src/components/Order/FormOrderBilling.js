@@ -20,6 +20,7 @@ export default function FormOrderBilling({ setTheFormIsSent }) {
         setTotalCart(0)
         setProductSelect()
         setProductList([])
+        localStorage.setItem('cartBeer', JSON.stringify([]))
     }
 
     return (

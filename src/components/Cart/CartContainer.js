@@ -43,7 +43,7 @@ function CartContainer() {
                         <TablesBody
                             items={productList}
                             chooseQuantity={chooseQuantity}
-                            deleteProp={deleteProp}
+                            deleteProp={() => deleteProp()}
                             oppenCloseModale={oppenCloseModale}
                             toggleModales={toggleModales}
                         />

@@ -37,7 +37,6 @@ export default function Orders() {
             {
                 toggleModales &&
                 <ConfirmModal
-
                 />
             }
             {
@@ -108,7 +107,7 @@ export default function Orders() {
                             <p>Thank you for your order {order.first_name} {order.last_name} !</p>
                             <p>You will soon receive a summary of the order by email .</p>
                         </div>
-                        <Link to="/" className="lien" >
+                        <Link to="/Home" className="lien" >
                             <div
                                 className="btnUi btn_primary"
                                 style={{ marginTop: "34px" }}

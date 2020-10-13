@@ -14,7 +14,6 @@
     width: 60%;
     top: -237px;
     padding: 20px;
-    font-size: 20px;
     color: rgb(233, 229, 229);
     background-color: rgba(109, 104, 103, 0.267);
     font-weight: bold;
@@ -30,4 +29,16 @@
     justify-content: center;
     background-size: cover;
     height: 400px;
+}
+
+@media screen and (max-width: 900px) {
+    .each-slide p {
+        font-size: 20px;
+    }
+    .each-slide>div {
+        height: auto;
+    }
+    .indicators {
+        margin-top: -54px!important;
+    }
 }

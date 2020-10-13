@@ -25,6 +25,8 @@ const ContextProvider = (props) => {
         credit: '',
 
     });
+
+
     const chooseQuantity = (event, index, id) => {
         const newProductList = productList
         if (typeof newProductList[index].quantity === isNaN) {
@@ -39,13 +41,15 @@ const ContextProvider = (props) => {
                 newProductList[index].quantity = parseInt(event.target.value)
                 newProductList[index].total = parseInt(newProductList[index].quantity * newProductList[index].price)
                 setProductList([...newProductList])
+                localStorage.setItem('cartBeer', JSON.stringify([...newProductList]))
+
             }
         }
     }
     const addAProductToList = (element) => {
         let test = false
         const newProduct = productList
-        newProduct.forEach(x => {
+        newProduct && newProduct.forEach(x => {
             if (x.name === element.name) {
                 test = true
                 x.quantity += 1
@@ -54,24 +58,28 @@ const ContextProvider = (props) => {
 
         if (test === true) {
             setProductList([...newProduct])
+
+            localStorage.setItem('cartBeer', JSON.stringify([...newProduct]))
         }
         else {
             setProductList([...productList, element])
+
+            localStorage.setItem('cartBeer', JSON.stringify([...productList, element]))
         }
     }
     const deleteProp = (x, close) => {
-        let array = productList.filter(element => element.id !== x)
+        let array = productList && productList.filter(element => element.id !== x)
         setProductList([...array])
+
+        localStorage.setItem('cartBeer', JSON.stringify([...array]))
         if (close) {
             close()
         }
     }
-    useEffect(() => {
-        deleteProp()
-    }, [])
+
     const changeTotalCart = (array) => {
         let total = []
-        if (array.length) {
+        if (array && array.length) {
             const reducer = (accumulator, currentValue) => accumulator + currentValue;
             array.forEach(x =>
                 total.push(x.quantity * x.price))
@@ -146,9 +154,11 @@ const ContextProvider = (props) => {
         if (arrayOfFavoritesExistant.includes(e.name)) {
             const newArray = arrayOfFavorites.filter(x => x.name !== e.name)
             setFavorites([...newArray])
+            localStorage.setItem('favBeer', JSON.stringify([...newArray]))
             return
         }
         setFavorites([...arrayOfFavorites, e])
+        localStorage.setItem('favBeer', JSON.stringify([...arrayOfFavorites, e]))
     }
 
     return (
@@ -184,7 +194,8 @@ const ContextProvider = (props) => {
             setTotalCart,
             setProductList,
             redirectCart,
-            setRedirectCart
+            setRedirectCart,
+            setFavorites
         }}>
             {props.children}
         </Context.Provider>

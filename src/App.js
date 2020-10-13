@@ -18,7 +18,7 @@ function App() {
         {/* <div className='App'> */}
         <Header />
         <Switch>
-          <Route exact path="/" component={BeerContainer} />
+          <Route exact path="/home" component={BeerContainer} />
           <Route exact path="/beer/:slug:price" component={BeerItemContainer} />
           <Route exact path="/favorites" component={FavoritesContainer} />
           <Route exact path="/order" component={Orders} />
